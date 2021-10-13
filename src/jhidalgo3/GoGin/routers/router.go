@@ -37,6 +37,7 @@ func InitRouter() *gin.Engine {
 	r.GET("/auth", api.CheckAuth)
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	r.POST("/upload", api.UploadImage)
+	r.POST("/users", v1.GetOrCreateUser)
 
 	// protected routes
 	apiv1 := r.Group("/api/v1")
